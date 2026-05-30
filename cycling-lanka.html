@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Om Naranji — Cycling Lanka</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #111110;
+  --ink-mid: #555552;
+  --ink-faint: #aaa9a3;
+  --paper: #ffffff;
+  --rule: rgba(0,0,0,0.1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 19px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+mono {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* NAV */
+nav {
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-title {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-faint);
+  transition: color 0.15s;
+}
+
+.nav-links a:hover { color: var(--ink); }
+
+/* HERO */
+.hero {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 8rem 2rem 7rem;
+}
+
+.hero-label {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 2.5rem;
+}
+
+.hero h1 {
+  font-size: 3.8rem;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+}
+
+.hero h1 em { font-style: italic; }
+
+.hero-intro {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--ink-mid);
+  line-height: 1.8;
+  border-top: 1px solid var(--rule);
+  padding-top: 2rem;
+}
+
+/* CAROUSEL */
+.carousel-section {
+  border-top: 1px solid var(--rule);
+  padding: 4rem 0 5rem;
+}
+
+.carousel-header {
+  max-width: 640px;
+  margin: 0 auto 2.5rem;
+  padding: 0 2rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.carousel-header-label {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.carousel-counter {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+}
+
+.carousel-wrap { overflow: hidden; }
+
+.carousel-track {
+  display: flex;
+  gap: 2px;
+  padding: 0 3rem;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.carousel-slide {
+  flex: 0 0 calc(50% - 1px);
+  min-width: calc(50% - 1px);
+}
+
+.slide-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  background: #f0efeb;
+}
+
+.slide-caption {
+  margin-top: 0.6rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+}
+
+.carousel-nav {
+  max-width: 640px;
+  margin: 2rem auto 0;
+  padding: 0 2rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.carousel-btn {
+  background: none;
+  border: 1px solid var(--rule);
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  color: var(--ink-mid);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.carousel-btn:disabled { opacity: 0.25; cursor: default; pointer-events: none; }
+
+/* TEXT SECTIONS */
+.text-section {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.section-heading {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 3rem;
+}
+
+.text-section h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+}
+
+.text-section h2 em { font-style: italic; }
+
+.text-section p {
+  color: var(--ink);
+  margin-bottom: 1.4rem;
+  font-size: 1rem;
+}
+
+.text-section p:last-child { margin-bottom: 0; }
+
+blockquote {
+  margin: 2.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--ink-faint);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+}
+
+/* CHAPTER INDEX */
+.index-section {
+  border-top: 1px solid var(--rule);
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 4rem 2rem 5rem;
+}
+
+.index-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.index-row:first-of-type { border-top: 1px solid var(--rule); }
+
+.index-num {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  min-width: 2.5rem;
+}
+
+.index-title {
+  font-size: 1.1rem;
+  font-weight: 400;
+  flex: 1;
+}
+
+.index-title em { font-style: italic; }
+
+.index-loc {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  text-align: right;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 2rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-title {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 680px) {
+  nav { padding: 1.5rem; }
+  .nav-links { display: none; }
+  .hero { padding: 5rem 1.5rem 4rem; }
+  .hero h1 { font-size: 2.6rem; }
+  .carousel-slide { flex: 0 0 calc(85% - 1px); min-width: calc(85% - 1px); }
+  .carousel-track { padding: 0 1.5rem; }
+  .carousel-header, .carousel-nav { padding: 0 1.5rem; }
+  .text-section { padding: 4rem 1.5rem; }
+  .index-section { padding: 3rem 1.5rem; }
+  footer { padding: 1.5rem; flex-direction: column; gap: 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-title">Om Naranji</a>
+  <ul class="nav-links">
+    <li><a href="#photos">Photos</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#chapters">Chapters</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <p class="hero-label">Sri Lanka — 2025</p>
+  <h1>Cycling Lanka</h1>
+  <p class="hero-intro">
+    They say the island was once ruled by the lions. Not the kind that rules the jungle — those were long gone before any kingdom, but one that remains in the blood and lineage of the people. The one that crossed the sea, created a resilient civilization, withstood countless conquerors, and its descendants today live and tell the stories of this land: Lanka.
+    <br><br>
+    And what better way to explore the island than by bicycle?
+  </p>
+</section>
+
+<section class="carousel-section" id="photos">
+  <div class="carousel-header">
+    <span class="carousel-header-label">From the road</span>
+    <span class="carousel-counter" id="carouselCounter">1–2 of 25</span>
+  </div>
+  <div class="carousel-wrap">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl01/900/600" alt="Photo 1" loading="lazy"><p class="slide-caption">01 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl02/900/600" alt="Photo 2" loading="lazy"><p class="slide-caption">02 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl03/900/600" alt="Photo 3" loading="lazy"><p class="slide-caption">03 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl04/900/600" alt="Photo 4" loading="lazy"><p class="slide-caption">04 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl05/900/600" alt="Photo 5" loading="lazy"><p class="slide-caption">05 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl06/900/600" alt="Photo 6" loading="lazy"><p class="slide-caption">06 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl07/900/600" alt="Photo 7" loading="lazy"><p class="slide-caption">07 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl08/900/600" alt="Photo 8" loading="lazy"><p class="slide-caption">08 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl09/900/600" alt="Photo 9" loading="lazy"><p class="slide-caption">09 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl10/900/600" alt="Photo 10" loading="lazy"><p class="slide-caption">10 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl11/900/600" alt="Photo 11" loading="lazy"><p class="slide-caption">11 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl12/900/600" alt="Photo 12" loading="lazy"><p class="slide-caption">12 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl13/900/600" alt="Photo 13" loading="lazy"><p class="slide-caption">13 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl14/900/600" alt="Photo 14" loading="lazy"><p class="slide-caption">14 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl15/900/600" alt="Photo 15" loading="lazy"><p class="slide-caption">15 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl16/900/600" alt="Photo 16" loading="lazy"><p class="slide-caption">16 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl17/900/600" alt="Photo 17" loading="lazy"><p class="slide-caption">17 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl18/900/600" alt="Photo 18" loading="lazy"><p class="slide-caption">18 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl19/900/600" alt="Photo 19" loading="lazy"><p class="slide-caption">19 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl20/900/600" alt="Photo 20" loading="lazy"><p class="slide-caption">20 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl21/900/600" alt="Photo 21" loading="lazy"><p class="slide-caption">21 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl22/900/600" alt="Photo 22" loading="lazy"><p class="slide-caption">22 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl23/900/600" alt="Photo 23" loading="lazy"><p class="slide-caption">23 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl24/900/600" alt="Photo 24" loading="lazy"><p class="slide-caption">24 — replace with your photo</p></div>
+      <div class="carousel-slide"><img class="slide-img" src="https://picsum.photos/seed/sl25/900/600" alt="Photo 25" loading="lazy"><p class="slide-caption">25 — replace with your photo</p></div>
+    </div>
+  </div>
+  <div class="carousel-nav">
+    <button class="carousel-btn" id="btnPrev" disabled aria-label="Previous">&#8592;</button>
+    <button class="carousel-btn" id="btnNext" aria-label="Next">&#8594;</button>
+  </div>
+</section>
+
+<section class="text-section" id="journey">
+  <p class="section-heading">Ride North</p>
+  <p>Right off the bat, the diversity of Sri Lanka can be felt. Starting the ride in 'Little Rome' (Negombo), a city with 65% of its population being Catholic. This was visible immediately with statues of the Blessed Virgin Mary and Jesus Christ at every other street corner. The locals, whether driving, walking, or cycling would 'sign a cross' over their chest when passing — it makes you feel some way, like you are seen and being protected.</p>
+  <p>Riding 50km north took me to Hindu-majority Munneswaram, home to the ancient Munneswaram Kovil. Legend has it that Lord Rama visited the temple after the victory over darkness to pray to Lord Shiva for killing Raavana, a Brahman, and installed a lingam. Coincidentally, I had arrived during Ther Thiruvizha (Chariot Festival) and it was a beautiful experience. Not so beautiful was the accommodation for that evening — I slept on top of the bed and left early the next morning without ever stepping into the bathroom.</p>
+  <p>Continuing north, I arrived in the Kalpitiya peninsula, a Muslim-majority region. I booked a hostel right on the beach for dirt cheap prices and made the decision to stay two extra nights to relax and soak in the scenery. Shoutout Surfpoint Sri Lanka in Kalpitiya — amazing hostel, absolute banger of a pineapple curry, and the staff helped me set up the next chapter of this journey.</p>
+</section>
+
+<section class="text-section">
+  <p class="section-heading">Coast to Coast</p>
+  <p>This is a cycling trip, but who's setting the rules? I stuffed my bike into a tuk-tuk to take me to the fisherman that agreed to give me a ride across the lagoon to the mainland. After almost an hour of getting everything set and the sun peaking just above the horizon, the motor turns on. I take my shoes off, roll my pants up, and load the bike onto the boat.</p>
+  <blockquote>I don't have any words to describe the feeling of this 30-minute boat ride. We just rode off into the distance in complete silence, listening to the waves, getting hit in the face by warm salt water. The same water that Vijaya and the first Sinhalese arrived by 2,500 years ago.</blockquote>
+  <p>Next stop: Anuradhapura, the island's first great capital and birthplace of Sinhalese Buddhism, and my favorite city of the trip. Jetavanaramaya once stood as the third tallest structure in the world, only behind the Great Pyramids. Circumambulating these stupas as the sun rose in utter silence with the occasional disruption by a rooster felt like stepping back in time.</p>
+  <p>The ride east continued into the sunrise, all the way to the sea, to Trincomalee. It was my first-ever metric century. Within a few hours at the hostel I was convinced to give scuba diving a try — backflipping into the water, learning how to move with gear, and resisting the urge to touch the colorful fishes and corals.</p>
+</section>
+
+<section class="text-section">
+  <p class="section-heading">Ride Inland</p>
+  <blockquote>"Let not even a drop of rain water reach the sea without serving the world." — King Parakramabahu the Great</blockquote>
+  <p>This is why I travel by bicycle. A car would reduce these ancient feats of engineering to nothing more than a blur behind tinted glass. But on a bicycle, I'm battling the crosswinds for kilometers, on the lookout for an aggressive wild elephant, and in deep thought of what other technology was invented by these great people that has been lost.</p>
+  <p>The streak of great experiences continued in Sigiriya. One of them being Jesus — a Spanish cyclist I met at the top of Piduralanga Rock in his full cycling kit. We were both super excited to see another cyclist, and he even changed his route to ride together.</p>
+  <p>After a few days, we set off for Kandy, the third and last great capital of the island. Then came a behemoth of a ride — 2,600m of elevation gain over 80km. With the pain came beautiful scenery: tea plantations, perfect weather, and very quiet roads. I was saved on the last steep portion by a vegetable lorry driver who pulled over and told me to hop in the back. I have now officially hitched a ride with my bicycle in a tuk-tuk, a fisherman's boat, a safari jeep, and a cauliflower lorry.</p>
+</section>
+
+<section class="text-section">
+  <p class="section-heading">Side Quest</p>
+  <p>I parked my bicycle at the hostel and took a bus to Hatton, then on to Nallanthanniya. There, I reunited with two American travellers I'd met in Sigiriya — Emily and Egan — to hike Sri Pada, one of Sri Lanka's most sacred pilgrimages. The town was a ghost town in the off season as we settled in for an early 3am start to catch the sunrise. To our disappointment, it was cloudy and miserably windy. Still incredibly beautiful, but that cold was something I was not prepared for.</p>
+</section>
+
+<section class="text-section">
+  <p class="section-heading">The Descent</p>
+  <p>After the side quest of hiking Sri Pada, I was ready to get back on my bike and continue south towards Ella. The ride was short and pleasant, giving me plenty of time to explore Ramayana sites: Sita Amman Kovil, Ashoka Vatika, and Divurumpola. After a week of non-stop socializing, my social battery finally had a chance to recharge.</p>
+  <p>The ride to Tissamaharama started off amazing, flying down the switchbacks at crazy speeds. Then once I reached sea-level, the heat kicked in. I struggled with this second half but eventually made it. There were no hostel options here, but plenty of cheap resort-style hotels. I spent the day in the pool and hammocks, while the owner's two little, cute "employees" kept me company.</p>
+  <p>The next day, I took a tuk-tuk to the neighboring town of Kataragama — one of the few places in the world where Buddhists, Hindus, and Muslims all share a single sacred space.</p>
+</section>
+
+<section class="index-section" id="chapters">
+  <p class="section-heading" style="margin-bottom: 0;">The route</p>
+  <div class="index-row">
+    <span class="index-num">I</span>
+    <span class="index-title">Ride North</span>
+    <span class="index-loc">Negombo → Kalpitiya</span>
+  </div>
+  <div class="index-row">
+    <span class="index-num">II</span>
+    <span class="index-title">Coast to Coast</span>
+    <span class="index-loc">Kalpitiya → Trincomalee</span>
+  </div>
+  <div class="index-row">
+    <span class="index-num">III</span>
+    <span class="index-title">Ride Inland</span>
+    <span class="index-loc">Trincomalee → Nuwara Eliya</span>
+  </div>
+  <div class="index-row">
+    <span class="index-num">IV</span>
+    <span class="index-title"><em>Side Quest</em> — Sri Pada</span>
+    <span class="index-loc">Nallanthanniya</span>
+  </div>
+  <div class="index-row">
+    <span class="index-num">V</span>
+    <span class="index-title">The Descent</span>
+    <span class="index-loc">Ella → Tissamaharama</span>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-title">Om Naranji</span>
+  <span class="footer-title" style="letter-spacing:0.08em;">Sri Lanka — 2025</span>
+</footer>
+
+<script>
+const track = document.getElementById('carouselTrack');
+const btnPrev = document.getElementById('btnPrev');
+const btnNext = document.getElementById('btnNext');
+const counter = document.getElementById('carouselCounter');
+const slides = track.querySelectorAll('.carousel-slide');
+const total = slides.length;
+let current = 0;
+
+function perView() { return window.innerWidth <= 680 ? 1 : 2; }
+
+function slideWidth() {
+  const gap = 2;
+  return slides[0].offsetWidth + gap;
+}
+
+function update() {
+  const pv = perView();
+  track.style.transform = `translateX(-${current * slideWidth()}px)`;
+  const end = Math.min(current + pv, total);
+  counter.textContent = `${current + 1}–${end} of ${total}`;
+  btnPrev.disabled = current === 0;
+  btnNext.disabled = current >= total - pv;
+}
+
+btnPrev.addEventListener('click', () => { current--; update(); });
+btnNext.addEventListener('click', () => { current++; update(); });
+window.addEventListener('resize', () => { current = 0; update(); });
+update();
+</script>
+
+</body>
+</html>
