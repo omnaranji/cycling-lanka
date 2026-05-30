@@ -26,17 +26,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-mono {
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 400;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
 /* NAV */
 nav {
-  padding: 2.5rem 3rem;
+  padding: 2rem 3rem;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -45,8 +37,7 @@ nav {
 
 .nav-title {
   font-family: 'Courier New', Courier, monospace;
-  font-weight: 400;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
@@ -61,7 +52,6 @@ nav {
 
 .nav-links a {
   font-family: 'Courier New', Courier, monospace;
-  font-weight: 400;
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -81,7 +71,6 @@ nav {
 
 .hero-label {
   font-family: 'Courier New', Courier, monospace;
-  font-weight: 400;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -97,19 +86,69 @@ nav {
   margin-bottom: 2.5rem;
 }
 
-.hero h1 em { font-style: italic; }
-
-.hero-intro {
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--ink-mid);
-  line-height: 1.8;
+.hero-body {
   border-top: 1px solid var(--rule);
   padding-top: 2rem;
 }
-  
+
+.hero-body p {
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.8;
+  margin-bottom: 1.4rem;
+}
+
+.hero-body p:last-child { margin-bottom: 0; }
+
 /* KOMOOT */
-  <iframe src="https://www.komoot.com/tour/2818225397/embed?share_token=aCQVVEtQyZZwFRFzKg0aKNqzvUZEhQgE9D0kutUmxaBBaVy8GH&amp;layout=classic&amp;profile=1" width="100%" height="700" frameborder="0" scrolling="no"></iframe>
+.komoot-section {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+
+.komoot-section iframe {
+  width: 100%;
+  height: 580px;
+  border: 1px solid var(--rule);
+  display: block;
+}
+
+/* TEXT SECTIONS */
+.text-section {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.section-heading {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 2.5rem;
+}
+
+.text-section p {
+  color: var(--ink);
+  font-size: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.text-section p:last-child { margin-bottom: 0; }
+
+blockquote {
+  margin: 2.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--ink-faint);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+}
 
 /* CAROUSEL */
 .carousel-section {
@@ -128,7 +167,6 @@ nav {
 
 .carousel-header-label {
   font-family: 'Courier New', Courier, monospace;
-  font-weight: 400;
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -137,7 +175,6 @@ nav {
 
 .carousel-counter {
   font-family: 'Courier New', Courier, monospace;
-  font-weight: 400;
   font-size: 10px;
   letter-spacing: 0.1em;
   color: var(--ink-faint);
@@ -169,7 +206,6 @@ nav {
 .slide-caption {
   margin-top: 0.6rem;
   font-family: 'Courier New', Courier, monospace;
-  font-weight: 400;
   font-size: 9px;
   letter-spacing: 0.1em;
   color: var(--ink-faint);
@@ -203,97 +239,6 @@ nav {
 .carousel-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .carousel-btn:disabled { opacity: 0.25; cursor: default; pointer-events: none; }
 
-/* TEXT SECTIONS */
-.text-section {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 5rem 2rem;
-  border-top: 1px solid var(--rule);
-}
-
-.section-heading {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: bold;
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 3rem;
-}
-
-.text-section h2 {
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  margin-bottom: 2rem;
-}
-
-.text-section h2 em { font-style: italic; }
-
-.text-section p {
-  color: var(--ink);
-  margin-bottom: 1.4rem;
-  font-size: 1rem;
-}
-
-.text-section p:last-child { margin-bottom: 0; }
-
-blockquote {
-  margin: 2.5rem 0;
-  padding-left: 1.5rem;
-  border-left: 1px solid var(--ink-faint);
-  font-style: italic;
-  font-size: 1.15rem;
-  color: var(--ink-mid);
-  line-height: 1.65;
-}
-
-/* CHAPTER INDEX */
-.index-section {
-  border-top: 1px solid var(--rule);
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 4rem 2rem 5rem;
-}
-
-.index-row {
-  display: flex;
-  align-items: baseline;
-  gap: 1.5rem;
-  padding: 1.4rem 0;
-  border-bottom: 1px solid var(--rule);
-}
-
-.index-row:first-of-type { border-top: 1px solid var(--rule); }
-
-.index-num {
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 400;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  color: var(--ink-faint);
-  min-width: 2.5rem;
-}
-
-.index-title {
-  font-size: 1.1rem;
-  font-weight: 400;
-  flex: 1;
-}
-
-.index-title em { font-style: italic; }
-
-.index-loc {
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 400;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: var(--ink-faint);
-  text-transform: uppercase;
-  text-align: right;
-}
-
 /* FOOTER */
 footer {
   border-top: 1px solid var(--rule);
@@ -305,7 +250,6 @@ footer {
 
 .footer-title {
   font-family: 'Courier New', Courier, monospace;
-  font-weight: 400;
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -321,7 +265,7 @@ footer {
   .carousel-track { padding: 0 1.5rem; }
   .carousel-header, .carousel-nav { padding: 0 1.5rem; }
   .text-section { padding: 4rem 1.5rem; }
-  .index-section { padding: 3rem 1.5rem; }
+  .komoot-section { padding: 0 1.5rem 4rem; }
   footer { padding: 1.5rem; flex-direction: column; gap: 0.75rem; }
 }
 </style>
@@ -331,20 +275,64 @@ footer {
 <nav>
   <a href="#" class="nav-title">Om Naranji</a>
   <ul class="nav-links">
-    <li><a href="#photos">Photos</a></li>
     <li><a href="#journey">Journey</a></li>
-    <li><a href="#chapters">Chapters</a></li>
+    <li><a href="#photos">Photos</a></li>
   </ul>
 </nav>
 
 <section class="hero">
   <p class="hero-label">Sri Lanka — 2025</p>
   <h1>Cycling Lanka</h1>
-  <p class="hero-intro">
-    They say the island was once ruled by the lions. Not the kind that rules the jungle — those were long gone before any kingdom, but one that remains in the blood and lineage of the people. The one that crossed the sea, created a resilient civilization, withstood countless conquerors, and its descendants today live and tell the stories of this land: Lanka.
-    <br><br>
-    And what better way to explore the island than by bicycle?
-  </p>
+  <div class="hero-body">
+    <p>They say the island was once ruled by the lions. Not the kind that rules the jungle — those were long gone before any kingdom, but one that remains in the blood and lineage of the people. The one that crossed the sea, created a resilient civilization, withstood countless conquerors, and its descendants today live and tell the stories of this land: Lanka.</p>
+    <p>And what better way to explore the island than by bicycle?</p>
+    <p>After quitting my corporate job and exploring the world for the past four months, I came back home in anticipation of heading right back out, this time with a bicycle. With the last piece of gear I ordered in my hand, I booked a one-way flight to the 'Pearl of the Indian Ocean'.</p>
+    <p>Despite having flown into the world's most dangerous airports previously, flying with my bicycle in a cardboard box is probably the most nervous I have been. All nerves went out the door and excitement set in the minute I saw my bicycle box being carried out by two men, in perfect condition. I exchanged some currency, bought a sim card, and took a taxi to get a good night's rest before beginning this once-in-a-lifetime ride.</p>
+  </div>
+</section>
+
+<section class="komoot-section">
+  <iframe src="https://www.komoot.com/tour/2818225397/embed?share_token=aCQVVEtQyZZwFRFzKg0aKNqzvUZEhQgE9D0kutUmxaBBaVy8GH&layout=classic&profile=1" frameborder="0" scrolling="no" allowfullscreen></iframe>
+</section>
+
+<section class="text-section" id="journey">
+  <p class="section-heading">Ride North</p>
+  <p>Right off the bat, the diversity of Sri Lanka can be felt. Starting the ride in 'Little Rome' (Negombo), a city with 65% of its population being Catholic. This was visible immediately with statues of the Blessed Virgin Mary and Jesus Christ at every other street corner. The locals, whether driving, walking, or cycling would 'sign a cross' over their chest when passing, and I don't know, it makes you feel some way — like you are seen and being protected.</p>
+  <p>Riding 50km north took me to Hindu-majority Munneswaram, home to the ancient Munneswaram Kovil. Legend has it that Lord Rama visited the temple after the victory over darkness to pray to Lord Shiva for killing Raavana, a Brahman, and installed a lingam. Coincidentally, I had arrived during Ther Thiruvizha (Chariot Festival) and it was a beautiful experience. Not so beautiful was the accommodation for that evening; I stayed at a rest house in Chillaw and it was horrendous. I slept on top of the bed and left early the next morning without ever stepping into the bathroom. Trust me, you don't want the details.</p>
+  <p>Continuing my journey north, I arrived in the Kalpitiya peninsula, a Muslim-majority region, after riding with painful cramps (IT WAS FUCKING HOT). This region is known for its windsurfing and with my luck, there were ZERO winds so no kitesurfing spotted. I booked a hostel right on the beach for dirt cheap prices as it was the off-season and made the decision to stay two extra nights to relax and soak in the scenery. Shout out Surfpoint Sri Lanka in Kalpitiya, amazing hostel, absolute banger of a pineapple curry, and the staff helped me set up the next chapter of this journey.</p>
+</section>
+
+<section class="text-section">
+  <p class="section-heading">Coast to Coast</p>
+  <p>This is a cycling trip, but who's setting the rules? I stuffed my bike into a tuk-tuk to take me to the fisherman that agreed to give me a ride across the lagoon to the mainland. After almost an hour of getting everything set and the sun peaking just above the horizon, the motor turns on. I take my shoes off, roll my pants up, and load the bike onto the boat. I don't have any words to describe the feeling of this 30-minute boat ride. We just rode off into the distance in complete silence, listening to the waves, and getting hit in the face by warm salt water. The same water that Vijaya and the first Sinhalese arrived by 2,500 years ago.</p>
+  <p>After a quick handoff, I was now with my safari guide and my bike was now in its third mode of transportation, a safari jeep. We headed into Sri Lanka's largest national park, Wilpattu National Park, and to summarize my experience in a few words: cool, but a bit disappointed — I didn't get to see any leopards or elephants.</p>
+  <p>Next stop: Anuradhapura, the island's first great capital and birthplace of Sinhalese Buddhism, and my favorite city of the trip. I felt like experimenting with the route that morning, and that I did. At one point, I was riding in a foot deep of mud and a local stopped me to ask me what I was doing and DEMANDED that I turn around. I told him "okay" in anticipation of him leaving so I could continue (I ain't no b*tch), but he stood there staring and so I just turned around and went back to the paved roads (alright, maybe I am). Once I made it to the hostel, I got my laundry done and got a much needed shave and spent the rest of the evening exploring the new town.</p>
+  <p>The next morning, I hired a tuk-tuk to the old town and spent hours exploring the ancient ruins. Jetavanaramaya once stood as the third tallest structure in the world, only behind the Great Pyramids. Abhayagiri and Ruwanweliseya, built by kings centuries before, round out the three great stupas of Anuradhapura. Circumambulating these stupas as the sun rose in utter silence with the occasional disruption by a rooster, felt like stepping back in time.</p>
+  <p>The ride east continues into the sunrise, all the way to the sea, to the 'Kailash of the South', Trincomalee. The ride will be forever memorable as it was my first-ever metric century. As I strolled into town, I felt like a monkey in a glass cage. The town was packed with tourists, all back from their morning scuba lessons and eating lunch. This was the first time on the trip I ran into tourists en masse. Within a few hours at the hostel talking to people, I was convinced to give scuba diving a try. It was genuinely a vibe — backflipping into the water, learning how to move with gear, and resisting the urge to touch the colorful fishes and corals. I stayed one more day to rest and visit the stunning Thiruknoeswaram Kovil that stands on a cliff overlooking the Indian Ocean and the Badrakali Amman Kovil with its detailed carvings and beautiful colors. I really enjoyed this leg of the journey, but I was really looking forward to heading inland into the hills for cooler weather.</p>
+</section>
+
+<section class="text-section">
+  <p class="section-heading">Ride Inland</p>
+  <blockquote>"Let not even a drop of rain water reach the sea without serving the world." — King Parakramabahu the Great</blockquote>
+  <p>This was famously said by King Parakramabahu the Great, nearly a thousand years ago, but he was just summarizing what had been preached by his ancestors. And they didn't just preach, they acted.</p>
+  <p>Unlike Egypt and Mesopotamia, the Sinhalese didn't have the luxury of settling near a river, so they engineered a solution. King Pandukabhaya built the first wewa (reservoir) in the 4th century BC. By the 3rd century AD, King Mahasena had scaled that vision into the Minneriya and Kaudulla Wevas, potentially saving millions from famine. The people made him a god for it, Minneriya Deviyo. In the 12th century, Parakramabahu completed what his ancestors started with the Parakarama Samudra in Polonnaruwa, a reservoir so vast that it created its own microclimate.</p>
+  <p>This is why I travel by bicycle. A car would reduce these ancient feats of engineering to nothing more than a blur behind tinted glass. But on a bicycle, I'm battling the crosswinds for kilometers, on the lookout for an aggressive wild elephant, and in deep thought of what other technology was invented by these great people that has been lost.</p>
+  <p>That evening, I stayed in a homestay and instantly felt like I had met my Sri Lankan family. It's funny to say that because my host within the first hour tried setting me up with their daughter. They fed me plenty of homemade food, exchanged stories and pictures, and they even washed my bicycle despite me insisting a million times that I would do it myself. I wish I could've stayed longer, but after exploring the second great capital of the island, Polonnaruwa, it was time for me to move on.</p>
+  <p>A pleasant, quiet ride through Minneriya National Park to arrive at my next stop: Sigiriya. The streak of great experiences continues with this being the highlight of the trip. This time, it wasn't the place itself or activities, but for the people I ran into. One of them being Jesus, a Spanish cyclist I met at the top of Piduralanga Rock in his full cycling kit. We were both super excited to see another cyclist, and he even changed his route to ride together — shoutout Jesus man! I also met two solo Americans (who I will mention later again) and an Indian traveler, Simran, touring the country by tuk tuk. I still feel bad for saying I'd hitch a ride in her tuk tuk and then bailing after meeting Jesus, sorry Simran!</p>
+  <p>After a few days in Sigiriya doing hikes and touristy things, we set off for Kandy, the third and last great capital of the island after the fall of the Sinhalese kingdom and rise of colonialism. I said 'we', as this time, I had a cycling partner. The pace was casual, watching roadside monasteries and the lush greenery roll by. We visited the Sri Dalada Maligawa, had some dosa with the crew from Sigiriya, before they tried to book a last-minute ticket on the famous Ella train. They were successful but with a 3:30am morning train — they said it was for the better as it was only locals.</p>
+  <p>After parting ways, I had a behemoth of a ride in front — 2,600m of elevation gain over 80km. With the pain came beautiful scenery — tea plantations, perfect weather, and VERY quiet roads. Luckily, I was saved by a vegetable lorry on the last, steep portion. The driver noticed me pushing my bike up a 10% gradient, he pulled over in front of me, and TOLD me to hop in the back. Now come on, how can I say no to that? We were both thrilled, this was like a side quest for him, and it saved me 600m of climbing and 10km of riding. With that, I can now officially say that I have hitched a ride with my bicycle in a tuk-tuk, fisherman's boat, safari jeep, and a cauliflower lorry. I stayed two nights in Nuwara Eliya: getting 'high tea' at the Grand Hotel, waterfall hike, and buying myself some knock-off 'Essentials Fear of God' pants.</p>
+</section>
+
+<section class="text-section">
+  <p class="section-heading">Side Quest</p>
+  <p>I parked my bicycle at the hostel and took a bus to Hatton, then on to Nallanthanniya. There, I reunited with the two American travellers I'd met in Sigiriya, Emily and Egan, to hike Sri Pada, one of Sri Lanka's most sacred pilgrimages. The town was a ghost town, completely empty in the off season, as we settled in for an early 3am start to catch the sunrise. To our disappointment, it was cloudy and miserably windy. Still incredibly beautiful, but that cold was something I was not prepared for. With no chance of a sunrise, we headed back down, packed our bags, said our goodbyes to the guesthouse pets, before going our separate ways.</p>
+</section>
+
+<section class="text-section">
+  <p class="section-heading">The Descent</p>
+  <p>After the side quest of hiking Sri Pada, I was ready to get back on my bike and continue south towards Ella. The ride was short and pleasant, giving me plenty of time to explore Ramayana sites: Sita Amman Kovil, Ashoka Vatika, and Divurumpola, where Sita Ma underwent Agni Pariksha. After a week of non-stop socializing, my social battery finally had a chance to recharge on this quiet ride and the hostel stay in Kitha Ella, a town just outside of busy Ella. I had a 12-bed dorm all to myself, which is exactly what I needed. Ella was a scenic 30-minute walk along the train tracks, where I spent my days doing short hikes, window shopping, and fueling on gelatos and pizzas.</p>
+  <p>The ride to Tissamaharama started off amazing, flying down the switchbacks at crazy speeds. Then once I reached sea-level, the heat kicked in and it wasn't amazing anymore. I struggled with this second half but eventually made it to Tissamaharama. There were no hostel options here, but plenty of cheap resort-style hotels. Once again, I was the only guest and had the whole place to myself. I spent the day in the pool and hammocks, while the owner's two little, cute "employees" kept me company. The next day, I took a tuk-tuk to the neighboring town of Katargama. It's one of the few places in the world where Buddhists, Hindus, and Muslims all share a single sacred space.</p>
+  <p>I had previously been warned by locals and the internet of the busy, chaotic corridor between Galle and Colombo, so the plan was originally to ride to Galle and take the train from there to Colombo.</p>
 </section>
 
 <section class="carousel-section" id="photos">
@@ -387,73 +375,9 @@ footer {
   </div>
 </section>
 
-<section class="text-section" id="journey">
-  <p class="section-heading">Ride North</p>
-  <p>Right off the bat, the diversity of Sri Lanka can be felt. Starting the ride in 'Little Rome' (Negombo), a city with 65% of its population being Catholic. This was visible immediately with statues of the Blessed Virgin Mary and Jesus Christ at every other street corner. The locals, whether driving, walking, or cycling would 'sign a cross' over their chest when passing — it makes you feel some way, like you are seen and being protected.</p>
-  <p>Riding 50km north took me to Hindu-majority Munneswaram, home to the ancient Munneswaram Kovil. Legend has it that Lord Rama visited the temple after the victory over darkness to pray to Lord Shiva for killing Raavana, a Brahman, and installed a lingam. Coincidentally, I had arrived during Ther Thiruvizha (Chariot Festival) and it was a beautiful experience. Not so beautiful was the accommodation for that evening — I slept on top of the bed and left early the next morning without ever stepping into the bathroom.</p>
-  <p>Continuing north, I arrived in the Kalpitiya peninsula, a Muslim-majority region. I booked a hostel right on the beach for dirt cheap prices and made the decision to stay two extra nights to relax and soak in the scenery. Shoutout Surfpoint Sri Lanka in Kalpitiya — amazing hostel, absolute banger of a pineapple curry, and the staff helped me set up the next chapter of this journey.</p>
-</section>
-
-<section class="text-section">
-  <p class="section-heading">Coast to Coast</p>
-  <p>This is a cycling trip, but who's setting the rules? I stuffed my bike into a tuk-tuk to take me to the fisherman that agreed to give me a ride across the lagoon to the mainland. After almost an hour of getting everything set and the sun peaking just above the horizon, the motor turns on. I take my shoes off, roll my pants up, and load the bike onto the boat.</p>
-  <blockquote>I don't have any words to describe the feeling of this 30-minute boat ride. We just rode off into the distance in complete silence, listening to the waves, getting hit in the face by warm salt water. The same water that Vijaya and the first Sinhalese arrived by 2,500 years ago.</blockquote>
-  <p>Next stop: Anuradhapura, the island's first great capital and birthplace of Sinhalese Buddhism, and my favorite city of the trip. Jetavanaramaya once stood as the third tallest structure in the world, only behind the Great Pyramids. Circumambulating these stupas as the sun rose in utter silence with the occasional disruption by a rooster felt like stepping back in time.</p>
-  <p>The ride east continued into the sunrise, all the way to the sea, to Trincomalee. It was my first-ever metric century. Within a few hours at the hostel I was convinced to give scuba diving a try — backflipping into the water, learning how to move with gear, and resisting the urge to touch the colorful fishes and corals.</p>
-</section>
-
-<section class="text-section">
-  <p class="section-heading">Ride Inland</p>
-  <blockquote>"Let not even a drop of rain water reach the sea without serving the world." — King Parakramabahu the Great</blockquote>
-  <p>This is why I travel by bicycle. A car would reduce these ancient feats of engineering to nothing more than a blur behind tinted glass. But on a bicycle, I'm battling the crosswinds for kilometers, on the lookout for an aggressive wild elephant, and in deep thought of what other technology was invented by these great people that has been lost.</p>
-  <p>The streak of great experiences continued in Sigiriya. One of them being Jesus — a Spanish cyclist I met at the top of Piduralanga Rock in his full cycling kit. We were both super excited to see another cyclist, and he even changed his route to ride together.</p>
-  <p>After a few days, we set off for Kandy, the third and last great capital of the island. Then came a behemoth of a ride — 2,600m of elevation gain over 80km. With the pain came beautiful scenery: tea plantations, perfect weather, and very quiet roads. I was saved on the last steep portion by a vegetable lorry driver who pulled over and told me to hop in the back. I have now officially hitched a ride with my bicycle in a tuk-tuk, a fisherman's boat, a safari jeep, and a cauliflower lorry.</p>
-</section>
-
-<section class="text-section">
-  <p class="section-heading">Side Quest</p>
-  <p>I parked my bicycle at the hostel and took a bus to Hatton, then on to Nallanthanniya. There, I reunited with two American travellers I'd met in Sigiriya — Emily and Egan — to hike Sri Pada, one of Sri Lanka's most sacred pilgrimages. The town was a ghost town in the off season as we settled in for an early 3am start to catch the sunrise. To our disappointment, it was cloudy and miserably windy. Still incredibly beautiful, but that cold was something I was not prepared for.</p>
-</section>
-
-<section class="text-section">
-  <p class="section-heading">The Descent</p>
-  <p>After the side quest of hiking Sri Pada, I was ready to get back on my bike and continue south towards Ella. The ride was short and pleasant, giving me plenty of time to explore Ramayana sites: Sita Amman Kovil, Ashoka Vatika, and Divurumpola. After a week of non-stop socializing, my social battery finally had a chance to recharge.</p>
-  <p>The ride to Tissamaharama started off amazing, flying down the switchbacks at crazy speeds. Then once I reached sea-level, the heat kicked in. I struggled with this second half but eventually made it. There were no hostel options here, but plenty of cheap resort-style hotels. I spent the day in the pool and hammocks, while the owner's two little, cute "employees" kept me company.</p>
-  <p>The next day, I took a tuk-tuk to the neighboring town of Kataragama — one of the few places in the world where Buddhists, Hindus, and Muslims all share a single sacred space.</p>
-</section>
-
-<section class="index-section" id="chapters">
-  <p class="section-heading" style="margin-bottom: 0;">The route</p>
-  <div class="index-row">
-    <span class="index-num">I</span>
-    <span class="index-title">Ride North</span>
-    <span class="index-loc">Negombo → Kalpitiya</span>
-  </div>
-  <div class="index-row">
-    <span class="index-num">II</span>
-    <span class="index-title">Coast to Coast</span>
-    <span class="index-loc">Kalpitiya → Trincomalee</span>
-  </div>
-  <div class="index-row">
-    <span class="index-num">III</span>
-    <span class="index-title">Ride Inland</span>
-    <span class="index-loc">Trincomalee → Nuwara Eliya</span>
-  </div>
-  <div class="index-row">
-    <span class="index-num">IV</span>
-    <span class="index-title"><em>Side Quest</em> — Sri Pada</span>
-    <span class="index-loc">Nallanthanniya</span>
-  </div>
-  <div class="index-row">
-    <span class="index-num">V</span>
-    <span class="index-title">The Descent</span>
-    <span class="index-loc">Ella → Tissamaharama</span>
-  </div>
-</section>
-
 <footer>
   <span class="footer-title">Om Naranji</span>
-  <span class="footer-title" style="letter-spacing:0.08em;">Sri Lanka — 2025</span>
+  <span class="footer-title">Sri Lanka — 2025</span>
 </footer>
 
 <script>
@@ -466,11 +390,7 @@ const total = slides.length;
 let current = 0;
 
 function perView() { return window.innerWidth <= 680 ? 1 : 2; }
-
-function slideWidth() {
-  const gap = 2;
-  return slides[0].offsetWidth + gap;
-}
+function slideWidth() { return slides[0].offsetWidth + 2; }
 
 function update() {
   const pv = perView();
